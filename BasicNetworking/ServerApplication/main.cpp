@@ -5,6 +5,7 @@
 #include "RakPeerInterface.h"
 #include "MessageIdentifiers.h"
 #include "Bitstream.h"
+#include "GameMessages.h"
 
 int main()
 {
@@ -24,8 +25,11 @@ int main()
 	pPeerInterface->Startup(32, &sd, 1);
 	pPeerInterface->SetMaximumIncomingConnections(32);
 
+	std::cout << "Server Started." << std::endl;
+
 	RakNet::Packet* packet = nullptr;
 
+	std::thread pingThread(SendClientPing, pPeerInterface);
 	while (1)
 	{
 		for (packet = pPeerInterface->Receive(); packet; pPeerInterface->DeallocatePacket(packet),
