@@ -22,4 +22,15 @@ public:
 	virtual void draw();
 
 private:
+	//initialise the connection
+	void HandleNetworkConnection();
+	void InitialiseClientConnection();
+
+	//Handle incoming messages
+	void HandleNetworkMessages();
+
+	RakNet::RakPeerInterface* m_pPeerInterface;
+
+	const char* IP = "192.168.0.2";
+	const unsigned short PORT = 5456;
 };
