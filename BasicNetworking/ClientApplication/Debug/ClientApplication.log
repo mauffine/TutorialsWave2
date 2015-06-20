@@ -1,0 +1,34 @@
+﻿Build started 20/06/2015 2:48:17 PM.
+     1>Project "C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\ClientApplication\ClientApplication.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\\dep\Raknet\include" /I"C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\\dep\glm" /I"C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\\dep\GLFW\include" /ZI /nologo /W3 /WX- /Od /Oy- /D GLM_FORCE_PURE /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt src\BaseApplication.cpp src\BasicNetworking.cpp src\Camera.cpp src\Gizmos.cpp src\main.cpp
+         main.cpp
+         Gizmos.cpp
+         Camera.cpp
+         BasicNetworking.cpp
+         BaseApplication.cpp
+         Generating Code...
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\\dep\Raknet\include" /I"C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\\dep\glm" /I"C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\\dep\GLFW\include" /ZI /nologo /W3 /WX- /Od /Oy- /D GLM_FORCE_PURE /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt src\gl_core_4_4.c
+         gl_core_4_4.c
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\Debug\ClientApplication.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\\dep\raknet\lib" /LIBPATH:"C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\\dep\glfw\lib-vc2013" ws2_32.lib Raknet_d.lib opengl32.lib glfw3.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\Debug\ClientApplication.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\Debug\ClientApplication.lib" /MACHINE:X86 Debug\BaseApplication.obj
+         Debug\BasicNetworking.obj
+         Debug\Camera.obj
+         Debug\Gizmos.obj
+         Debug\gl_core_4_4.obj
+         Debug\main.obj
+     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+     1>Raknet_d.lib(GetTime.obj) : warning LNK4099: PDB 'raknet_vs2008_libstatic_debug_win32.pdb' was not found with 'Raknet_d.lib(GetTime.obj)' or at 'C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\Debug\raknet_vs2008_libstatic_debug_win32.pdb'; linking object as if no debug info
+     1>Raknet_d.lib(Itoa.obj) : warning LNK4099: PDB 'raknet_vs2008_libstatic_debug_win32.pdb' was not found with 'Raknet_d.lib(Itoa.obj)' or at 'C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\Debug\raknet_vs2008_libstatic_debug_win32.pdb'; linking object as if no debug info
+     1>Raknet_d.lib(LocklessTypes.obj) : warning LNK4099: PDB 'raknet_vs2008_libstatic_debug_win32.pdb' was not found with 'Raknet_d.lib(LocklessTypes.obj)' or at 'C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\Debug\raknet_vs2008_libstatic_debug_win32.pdb'; linking object as if no debug info
+     1>Raknet_d.lib(RakNetSocket2.obj) : warning LNK4099: PDB 'raknet_vs2008_libstatic_debug_win32.pdb' was not found with 'Raknet_d.lib(RakNetSocket2.obj)' or at 'C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\Debug\raknet_vs2008_libstatic_debug_win32.pdb'; linking object as if no debug info
+     1>Raknet_d.lib(RakNetTypes.obj) : warning LNK4099: PDB 'raknet_vs2008_libstatic_debug_win32.pdb' was not found with 'Raknet_d.lib(RakNetTypes.obj)' or at 'C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\Debug\raknet_vs2008_libstatic_debug_win32.pdb'; linking object as if no debug info
+     1>Raknet_d.lib(RakSleep.obj) : warning LNK4099: PDB 'raknet_vs2008_libstatic_debug_win32.pdb' was not found with 'Raknet_d.lib(RakSleep.obj)' or at 'C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\Debug\raknet_vs2008_libstatic_debug_win32.pdb'; linking object as if no debug info
+     1>Raknet_d.lib(RakThread.obj) : warning LNK4099: PDB 'raknet_vs2008_libstatic_debug_win32.pdb' was not found with 'Raknet_d.lib(RakThread.obj)' or at 'C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\Debug\raknet_vs2008_libstatic_debug_win32.pdb'; linking object as if no debug info
+     1>Raknet_d.lib(SuperFastHash.obj) : warning LNK4099: PDB 'raknet_vs2008_libstatic_debug_win32.pdb' was not found with 'Raknet_d.lib(SuperFastHash.obj)' or at 'C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\Debug\raknet_vs2008_libstatic_debug_win32.pdb'; linking object as if no debug info
+         ClientApplication.vcxproj -> C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\Debug\ClientApplication.exe
+     1>Done Building Project "C:\Users\Sean Mauff\Documents\TutorialsWave2\BasicNetworking\ClientApplication\ClientApplication.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:35.38
