@@ -1,5 +1,9 @@
 #pragma once
 
+#include <vector>
+
+#include "GameObject.h"
+
 struct GLFWwindow;
 
 class BaseApplication {

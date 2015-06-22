@@ -1,21 +1,12 @@
 #pragma once
-#include <thread>
-#include <chrono>
+
 #include "MessageIdentifiers.h"
 
 enum GameMessages
 {
-	ID_SERVER_TEXT_MESSAGE = ID_USER_PACKET_ENUM + 1
+	ID_SERVER_TEXT_MESSAGE = ID_USER_PACKET_ENUM + 1,
+	ID_SERVER_CLIENT_ID = ID_USER_PACKET_ENUM + 2,
+	ID_CLIENT_CREATE_OBJECT = ID_USER_PACKET_ENUM + 3,
+	ID_SERVER_FULL_OBJECT_DATA = ID_USER_PACKET_ENUM + 4,
+	ID_CLIENT_UPDATE_OBJECT_POSITION = ID_USER_PACKET_ENUM + 5,
 };
-void SendClientPing(RakNet::RakPeerInterface* a_pPeerinterface)
-{
-	while (true)
-	{
-		RakNet::BitStream bs;
-		bs.Write((RakNet::MessageID)GameMessages::ID_SERVER_TEXT_MESSAGE);
-		bs.Write("Ping!");
-
-		a_pPeerinterface->Send(&bs, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_SYSTEM_ADDRESS, true);
-		std::this_thread::sleep_for(std::chrono::seconds(1));
-	}
-}

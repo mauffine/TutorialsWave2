@@ -3,6 +3,8 @@
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 
+#include "Gizmos.h"
+
 bool BaseApplication::createWindow(const char* title, int width, int height) {
 
 	if (glfwInit() == GL_FALSE)
