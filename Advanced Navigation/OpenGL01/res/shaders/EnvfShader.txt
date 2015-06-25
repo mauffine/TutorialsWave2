@@ -1,0 +1,91 @@
+#version 410
+
+in vec3 fPosition;
+in vec3 fNormal;
+in vec2 fTexCoord;
+
+out vec4 fragColour;
+
+struct DirectionalLight
+{
+	vec3 direction;				// Direction of this light
+	vec3 ambient;				// Ambient colour of this light
+	vec3 diffuse;				// Colour of this light
+	float ambientIntensity;		// Intensity of ambient lighting
+	float diffuseIntensity;		// Intensity of diffuse light
+	float specularIntensity;	// Intensity of specular highlights
+};
+
+//Lighting properties of the mesh
+struct Material
+{
+	vec4 ambient;			// Ambient colour (intensity stored in a)
+	vec4 diffuse;			// Diffuse colour
+	vec4 specular; 			// Specular colour (shininess stored in a)
+	sampler2D diffuseTex;	// Diffuse texture
+};
+
+uniform DirectionalLight dirLight;	// Directional light properties
+uniform Material material;			// Mesh's lighting properties
+uniform vec3 cameraPos;				// Used for specular highlighting
+
+// Returns intensity of ambient lighting
+vec3 AmbientLighting()
+{
+	vec3 lightAmbient = dirLight.ambient * dirLight.ambientIntensity;
+	vec3 materialAmbient = material.ambient.rgb * material.ambient.a;
+	
+	return lightAmbient * materialAmbient;
+}
+
+// Returns intensity of diffuse reflection
+// a_N = Normal
+// a_L = Vector to light
+vec3 DiffuseLighting(in vec3 a_N, in vec3 a_L)
+{
+	float diffuseTerm = clamp(dot(a_N, a_L), 0, 1);
+	vec3 materialDiffuse = material.diffuse.rgb * material.diffuse.a;
+	vec3 lightDiffuse = dirLight.diffuse.rgb * dirLight.diffuseIntensity;
+	
+	return (materialDiffuse * lightDiffuse) * diffuseTerm;
+}
+
+// Returns intensity of specular reflection
+// a_N = Normal
+// a_L = Vector to light
+// a_V = Vector to eye
+vec3 SpecularLighting(in vec3 a_N, in vec3 a_L, in vec3 a_V)
+{
+	float specularTerm = 0;
+	float materialShininess = material.specular.a;
+	
+	// Calculate specular if surface is facing towards the light source
+	if (dot(a_N, a_L) > 0)
+	{
+		vec3 halfVec = normalize(a_L + a_V);
+		specularTerm = pow(dot(a_N, halfVec), materialShininess);
+	}
+	
+	return material.specular.rgb * dirLight.specularIntensity * 
+		specularTerm;
+}
+
+void main()
+{
+	vec3 L = normalize(dirLight.direction);		// Vector to light
+	vec3 V = normalize(cameraPos - fPosition);	// Direction to camera
+	vec3 N = normalize(fNormal);				// Vertex normal
+	
+	// Calculate phong reflectance components 
+	vec3 ambient = AmbientLighting();
+	vec3 diffuse = DiffuseLighting(N, L);
+	vec3 specular = SpecularLighting(N, L, V);
+	
+	// Calculate material diffuse colour
+	vec4 diffuseColour = texture(material.diffuseTex, fTexCoord) * 
+								 material.diffuse;
+	
+	// Combine components to calculate final fragment colour
+	fragColour = vec4(diffuseColour.rgb * (ambient + diffuse + specular), 
+		diffuseColour.a);
+}
